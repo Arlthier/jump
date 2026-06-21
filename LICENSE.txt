@@ -1,0 +1,5 @@
+Ultimate-Platformer-Controller-2D (MIT License | Copyright (c) 2024 Noasey):
+ - https://github.com/Noah-Erz/Ultimate-Platformer-Controller-2D/tree/main
+
+Pixelify Sans (SIL Open Font License Official Text | Copyright 2021 The Pixelify Sans Project Authors)
+ - https://github.com/eifetx/Pixelify-Sans

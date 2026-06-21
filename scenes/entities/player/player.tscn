@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://x40eiw80lb6u"]
+
+[ext_resource type="Texture2D" uid="uid://f656oyf5vr41" path="res://assets/sprites/undefined.png" id="1_1hmtu"]
+[ext_resource type="Script" uid="uid://bacb3w7q2ctv6" path="res://scenes/entities/player/player_controller.gd" id="1_635qg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yel1f"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_635qg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1hmtu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D" unique_id=1329869615 node_paths=PackedStringArray("PlayerSprite", "PlayerCollider")]
+script = ExtResource("1_635qg")
+PlayerSprite = NodePath("AnimatedSprite2D")
+PlayerCollider = NodePath("CollisionShape2D")
+dashType = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=859600105]
+shape = SubResource("CapsuleShape2D_yel1f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=94089612]
+sprite_frames = SubResource("SpriteFrames_635qg")

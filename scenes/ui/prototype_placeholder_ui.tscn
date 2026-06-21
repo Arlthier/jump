@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://bqfoxepv2n4j5"]
+
+[ext_resource type="Theme" uid="uid://cdg5d8h4xen80" path="res://common/themes/ui_theme.tres" id="1_7p4y2"]
+
+[node name="PrototypePlaceholderUI" type="CanvasLayer" unique_id=337303146]
+
+[node name="Control" type="Control" parent="." unique_id=311106983]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = ExtResource("1_7p4y2")
+
+[node name="Label" type="Label" parent="Control" unique_id=2051609099]
+layout_mode = 0
+offset_left = 3.9999998
+offset_top = 3.9999998
+offset_right = 61.0
+offset_bottom = 43.0
+scale = Vector2(0.9968127, 1)
+theme_override_font_sizes/font_size = 8
+text = "WASD - L/R mov
+ENTER - Dash
+SPACE - jump"
