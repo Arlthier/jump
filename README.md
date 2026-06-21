@@ -12,10 +12,7 @@ Proof of concept for a platform game.
 Read the available documentation in the docs and the architectural choices in the ADRs.
 
 ## Features
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+- Player movement.
 
 ## License
  * TBD
