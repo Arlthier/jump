@@ -19,6 +19,15 @@ offset_right = 61.0
 offset_bottom = 43.0
 scale = Vector2(0.9968127, 1)
 theme_override_font_sizes/font_size = 8
-text = "WASD - L/R mov
-ENTER - Dash
-SPACE - jump"
+text = "WASD - L/R mov | SHIFT - run
+ENTER - Dash      | SPACE - jump"
+
+[node name="version" type="Label" parent="Control" unique_id=1115462798]
+layout_mode = 0
+offset_left = 261.0
+offset_top = 169.0
+offset_right = 318.0
+offset_bottom = 180.0
+scale = Vector2(0.9968127, 1)
+theme_override_font_sizes/font_size = 8
+text = "JUMP - 0.1.0v"

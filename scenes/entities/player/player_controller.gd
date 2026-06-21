@@ -5,12 +5,8 @@ extends CharacterBody2D
 
 class_name PlatformerController2D
 
-@export var README: String = "IMPORTANT: MAKE SURE TO ASSIGN 'left' 'right' 'jump' 'dash' 'up' 'down' 'roll' 'latch' 'twirl' 'run' in the project settings input map. Usage tips. 1. Hover over each toggle and variable to read what it does and to make sure nothing bugs. 2. Animations are very primitive. To make full use of your custom art, you may want to slightly change the code for the animations"
-#INFO READEME 
-#IMPORTANT: MAKE SURE TO ASSIGN 'left' 'right' 'jump' 'dash' 'up' 'down' 'roll' 'latch' 'twirl' 'run'  in the project settings input map. THIS IS REQUIRED
-#Usage tips. 
-#1. Hover over each toggle and variable to read what it does and to make sure nothing bugs. 
-#2. Animations are very primitive. To make full use of your custom art, you may want to slightly change the code for the animations
+@export var color_primary: Color = Color.BLUE
+@export var color_secondary: Color = Color.ORANGE
 
 @export_category("Necesary Child Nodes")
 @export var PlayerSprite: AnimatedSprite2D
@@ -184,6 +180,9 @@ var rollTap
 var downTap
 var twirlTap
 
+enum PlayerColor {PRIMARY, SECONDARY}
+var current_color: PlayerColor = PlayerColor.PRIMARY
+
 func _ready():
 	wasMovingR = true
 	anim = PlayerSprite
@@ -192,6 +191,8 @@ func _ready():
 	_updateData()
 	
 func _updateData():
+	anim.modulate = color_primary if current_color == PlayerColor.PRIMARY else color_secondary
+	
 	acceleration = maxSpeed / timeToReachMaxSpeed
 	deceleration = -maxSpeed / timeToReachZeroSpeed
 	
@@ -287,7 +288,7 @@ func _process(_delta):
 		elif abs(velocity.x) < 0.1 and is_on_floor():
 			anim.speed_scale = 1
 			anim.play("idle")
-		
+	
 	#jump
 	if velocity.y < 0 and jump and !dashing:
 		anim.speed_scale = 1
@@ -349,9 +350,12 @@ func _physics_process(delta):
 	downTap = Input.is_action_just_pressed("down")
 	twirlTap = Input.is_action_just_pressed("twirl")
 	
-	
+	if jumpTap:
+		# WARNING: Player can cheat by pressing the JUMP mid-air.
+		current_color = PlayerColor.PRIMARY if current_color == PlayerColor.SECONDARY else PlayerColor.SECONDARY
+		anim.modulate = color_primary if current_color == PlayerColor.PRIMARY else color_secondary
+		
 	#INFO Left and Right Movement
-	
 	if rightHold and leftHold and movementInputMonitoring:
 		if !instantStop:
 			_decelerate(delta, false)

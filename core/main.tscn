@@ -13,9 +13,11 @@
 position = Vector2(1, 0)
 
 [node name="Player" parent="." unique_id=1329869615 instance=ExtResource("1_xiose")]
+maxSpeed = 200.0
+runningModifier = true
 
 [node name="FloorPrototype" type="StaticBody2D" parent="." unique_id=1664519036]
-position = Vector2(0, 84)
+position = Vector2(0, 75)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FloorPrototype" unique_id=1154938040]
 shape = SubResource("WorldBoundaryShape2D_xiose")
